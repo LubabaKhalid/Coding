@@ -21,7 +21,7 @@
 #Output: [0,1]
 
 #nums=[2,7,11,15]
-nums=[3,3]
+"""nums=[3,3]
 target=6
 l=0
 r=len(nums)-1
@@ -37,4 +37,15 @@ while l<r:
     else:
         r=r-1
 if flag:
-    print(-1)
+    print(-1)"""
+
+"""def Sum2(nums,t):
+    dic={}
+    for i in range(len(nums)):
+        res=t-nums[i]
+        if res in dic:
+            return [i,dic[res]]
+        dic[nums[i]]=i
+
+nums=[2,7,11,5]
+print(Sum2(nums,9))"""
