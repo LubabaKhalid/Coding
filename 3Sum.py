@@ -26,8 +26,8 @@ Output: [[0,0,0]]
 Explanation: The only possible triplet sums up to 0.
  """
 
-#Brute Force logic O(n^2)
-def Sum3(nums):
+#Brute Force logic O(n^3)
+"""def Sum3(nums):
     res=set()
     for i in range(len(nums)):
         for j in range(i+1,len(nums)):
@@ -37,6 +37,35 @@ def Sum3(nums):
                     res.add(tri)
         
     return [list(x) for x in res]
+
+nums = [-1,0,1,2,-1,-4]
+print(Sum3(nums))"""
+
+#Optimized Solution O(n^2)
+def Sum3(nums):
+    nums.sort()
+    res=[]
+    for i in range(len(nums)-2):
+        if i>0 and nums[i]==nums[i-1]:
+            continue
+        l=i+1
+        r=len(nums)-1
+        while l<r:
+            if nums[i]+nums[l]+nums[r]==0:
+                res.append([nums[i],nums[l],nums[r]])
+                l=l+1
+                r=r-1
+                while l<r and nums[l]==nums[l-1]:
+                    l=l+1
+                while l<r and nums[r]==nums[r+1]:
+                    r-=1
+                    
+            elif nums[i]+nums[l]+nums[r]<0:
+                l=l+1
+            else:
+                r-=1
+    return res
+
 
 nums = [-1,0,1,2,-1,-4]
 print(Sum3(nums))
