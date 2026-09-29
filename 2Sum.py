@@ -21,6 +21,8 @@
 #Output: [0,1]
 
 #nums=[2,7,11,15]
+
+#this solution when nums is sorted O(n)
 """nums=[3,3]
 target=6
 l=0
@@ -39,6 +41,19 @@ while l<r:
 if flag:
     print(-1)"""
 
+#Brute Force Solution O(n^2)
+def Sum2(nums,target):
+    for i in range(len(nums)):
+        for j in range(i+1,len(nums)):
+            if nums[i]+nums[j]==target:
+                return [i,j]
+
+nums=[2,3,7,11,15]
+target=9
+print(Sum2(nums,target))
+
+
+# nums is unsorted hashing O(n)
 """def Sum2(nums,t):
     dic={}
     for i in range(len(nums)):
