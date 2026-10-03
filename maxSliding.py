@@ -12,3 +12,22 @@ while k+i<=len(nums):
 print(l)"""
 
 #Optimized Logic
+import heapq
+
+def maxSlidingWindow(nums, k):
+    heap = []
+    result = []
+
+    for i in range(len(nums)):
+        heapq.heappush(heap, (-nums[i], i))
+
+        if i >= k - 1:
+
+            # Remove elements outside the window
+            while heap[0][1] <= i - k:
+                heapq.heappop(heap)
+
+            result.append(-heap[0][0])
+
+    return result
+nums = [1,3,-1,-3,5,3,6,7]
