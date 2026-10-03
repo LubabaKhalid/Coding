@@ -1,4 +1,4 @@
-class Solution:
+"""class Solution:
     def addTwoNumbers(self, l1: ListNode | None, l2: ListNode | None) -> ListNode | None:
         carry=0
         dummy=ListNode()
@@ -17,5 +17,10 @@ class Solution:
             if l2:
                 l2=l2.next
         return dummy.next
+"""
 
+
+n=243
+m=564
+print(list(str(n+m)))
 
